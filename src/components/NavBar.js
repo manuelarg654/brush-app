@@ -14,6 +14,7 @@ export const NavBar = () => {
     const {sidebar} = useSelector(state => state.ui);
     const dispatch = useDispatch();
     const state = useSelector(state => state);
+    console.log(state)
     
     const { userImage } = auth;
 

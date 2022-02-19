@@ -13,6 +13,7 @@ export const NavBar = () => {
     const auth = useSelector(state => state.auth);
     const {sidebar} = useSelector(state => state.ui);
     const dispatch = useDispatch();
+    const state = useSelector(state => state);
     
     const { userImage } = auth;
 

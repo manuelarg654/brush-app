@@ -21,7 +21,7 @@ export const ModifyPhrasalVerbsScreen = () => {
 
     dispatch(getAllPhrasalVerbsForTable());
 
-        if(!noPhrasalVerbs){ 
+    if(!noPhrasalVerbs){ 
       dispatch(modifyContainerMounted(true));
     }
 

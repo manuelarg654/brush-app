@@ -15,15 +15,6 @@ export const ModifyWordsScreen = () => {
   const { loading, nowords } = useSelector(state => state.ui);
   const [page, setPage] = useState(0);
 
-
-  // let width = window.innerWidth;
-  // window.addEventListener('resize', e=>{
-  //   let width = window.innerWidth;
-  // })
-
-
-
-
   useEffect(() => {
 
     dispatch(getAllDocsForTable());

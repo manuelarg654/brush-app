@@ -14,7 +14,6 @@ export const ModifyWordsScreen = () => {
   const {allWords} = useSelector(state => state.words);
   const { loading, nowords } = useSelector(state => state.ui);
   const [page, setPage] = useState(0);
-  console.log("a")
 
   useEffect(() => {
 

@@ -11,6 +11,8 @@ export const WordsScreen = () => {
     const words = useSelector(state => state.words);
     const {loading, firstWord, nowords }= useSelector(state => state.ui);
     const {infinitivo, traduccion} = words;
+    const state = useSelector(state => state);
+    
 
     const dispatch = useDispatch();
 
@@ -23,23 +25,15 @@ export const WordsScreen = () => {
 
     const handleNewWord =()=>{
 
-        
         setEnable(false);
         dispatch(getAllDocs());
-        
-
     }
 
     const handleTranslate =()=>{
 
-        
         setEnable(!enable);
-
     }
 
-    // const handleCloseNavbar =()=>{
-    //     dispatch( closeSidebar());
-    // }
 
     // The p tag will only make a new line on line-breaking characters like spaces, hyphens, and other punctuation. (Try inserting a space in the middle of your long asdf line.)
     

@@ -1,4 +1,3 @@
-
 import { addDoc, collection, deleteDoc, doc, getDocs } from "firebase/firestore";
 import { db } from "../firebase/firebase-config";
 import { types } from "../types/types";
@@ -226,5 +225,3 @@ export const setAllWords =(allWords)=>{
     })
 
 }
-
-

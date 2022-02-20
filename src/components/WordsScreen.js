@@ -11,7 +11,7 @@ export const WordsScreen = () => {
     const words = useSelector(state => state.words);
     const {loading, firstWord, nowords }= useSelector(state => state.ui);
     const {infinitivo, traduccion} = words;
-    const state = useSelector(state => state);
+    
     
 
     const dispatch = useDispatch();

@@ -10,6 +10,11 @@ import { closeSidebar } from '../actions/uiActions';
 
 export const NavBar = () => {
 
+    let width = window.innerWidth;
+    let height = window.innerHeight;
+    console.log(width)
+    console.log(height)
+
     const auth = useSelector(state => state.auth);
     const {sidebar} = useSelector(state => state.ui);
     const dispatch = useDispatch();

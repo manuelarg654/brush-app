@@ -117,10 +117,10 @@
                 height: 40px;
                 font-size: 1rem;
                 cursor: pointer;
-
                 transition: all .3s ease-in-out;
                 padding-left: 40px;
                 color: white;
+
                 display: flex;
                 justify-content: left;
                 align-items: center;
@@ -714,11 +714,7 @@
     }
   }
 
-  @media screen and (max-width:1370px){
 
-
-
-  }
 
 @media screen and (max-width:500px){
 
@@ -803,6 +799,25 @@
 
 
  
+}
+
+@media only screen and (max-height:640px){
+
+.dashboard{
+    
+  .navbar{
+      
+    .navbar-menu-container{
+
+    .navbar-links{
+
+      .navbar-link{
+      height: 30px;
+    }
+  }
+}
+}
+}
 }
 
 @media only screen and (max-height: 350px){

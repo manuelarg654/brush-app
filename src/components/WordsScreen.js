@@ -40,7 +40,7 @@ export const WordsScreen = () => {
     return (
         (!nowords) ?
         <div className='practice-word-screen-container animate__animated animate__fadeIn'>
-            
+        
             <div className='words-container'>
             {( loading ? (<div className="lds-ellipsis"><div></div><div></div><div></div><div></div></div>)
             :

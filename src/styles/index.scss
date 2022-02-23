@@ -177,6 +177,7 @@
     justify-content: center;
     align-items: center;
     width: 90%;
+    
 
 
     .words-container{
@@ -719,6 +720,9 @@
 @media screen and (max-width:500px){
 
   .dashboard{
+
+    height: 200vh;
+
     .container-table{
 
       display: block;
@@ -804,6 +808,9 @@
 @media only screen and (max-height:700px){
 
 .dashboard{
+
+
+  height: 200vh;
     
   .navbar{
       
@@ -820,9 +827,22 @@
 }
 }
 
-@media only screen and (max-height: 350px){
+@media only screen and (max-height: 450px){
 
   .dashboard{
+
+
+
+    .container-table{
+
+      display: block;
+      margin-top: 90px;
+      margin: 90 auto;
+      
+      margin-left: 18%;
+    
+
+    }
     
   .navbar{
     
@@ -830,14 +850,26 @@
     height: 100vh;
     width: 100vw;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     flex-direction: row;
+
+    .signout-wrapper {
+      width: 30%;
+      text-align: center;
+  }
+
+  
+  .navbar-logo-container {
+
+    width: 30%;
+}
 
 
     .navbar-menu-container{
 
-      
+      width: 30%;
+
 
 
       .navbar-links{
@@ -847,12 +879,11 @@
           text-align: center;
           width: 300px;
           display: flex;
-          justify-content:center;
+          justify-content:space-around;
           align-items:center;
           flex-direction: column;
           
-
-
+          
           h2{
               color: #71DFBE;
               font-size: 1rem;

@@ -9,27 +9,39 @@ import { clearVerbs } from './VerbsActions';
 import { clearWords } from './wordsActions';
 import Swal from 'sweetalert2';
 
-
-
-
 export const AsyncRegisterNewUser =(username, email, password)=>{
+    
 
-    return((dispatch)=>{
-
+    return(()=>{
         const auth = getAuth();
         createUserWithEmailAndPassword(auth, email, password)
         .then( async({user})=>{
             await updateProfile(user,{
                 displayName: username,
             })
-            dispatch(
-                login(user.uid, user.displayName)
-            )
-            
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: "Usuario creado exitosamente, inicia Sesión",
+                showConfirmButton: false,
+                timer: 2500
+              });
+
+        })
+        .catch(e=>{
+            Swal.fire({
+                position: 'center',
+                icon: 'error',
+                title: `${e}`,
+                showConfirmButton: false,
+                timer: 2500
+              });
         })
 
 
     })
+
+    
 
 }
 
@@ -67,7 +79,13 @@ export const AsyncLoginWithGoogle =()=>{
             dispatch(login(user.uid, user.displayName, user.photoURL));
         })
         .catch((e)=>{
-            console.log(e);
+            Swal.fire({
+                position: 'center',
+                icon: 'error',
+                title: `${e}`,
+                showConfirmButton: false,
+                timer: 2500
+              });
         })
 
     })

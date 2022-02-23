@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch} from "react-redux";
 import AppLogo from '../../assets/brushAPPLogo.PNG';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from '../../hooks/useForm';
 import { AsyncRegisterNewUser } from '../../actions/authActions';
 import validator from 'validator';
@@ -12,12 +12,13 @@ import Swal from 'sweetalert2';
 export const RegisterScreen = () => {
 
     const dispatch = useDispatch();
+    const navegacion = useNavigate();
 
-    const [ values, handleInputChange, reset ] = useForm({
-        username: "",
-        password:"",
-        email:'',
-        confirmedPassword:'',
+    const [ values, handleInputChange] = useForm({
+        username: "manuelarg",
+        password:"Manuelarg654*",
+        email:'manuelr654321@gmail.com',
+        confirmedPassword:'Manuelarg654*',
     });
 
     const { username,email, password, confirmedPassword } = values;
@@ -30,7 +31,7 @@ export const RegisterScreen = () => {
         if(isFormValid()){
             
             dispatch( AsyncRegisterNewUser(username,email,password));
-            reset();
+            navegacion('/auth/login');
         }
         
         

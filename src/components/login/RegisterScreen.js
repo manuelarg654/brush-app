@@ -15,10 +15,10 @@ export const RegisterScreen = () => {
     const navegacion = useNavigate();
 
     const [ values, handleInputChange] = useForm({
-        username: "manuelarg",
-        password:"Manuelarg654*",
-        email:'ferreelectricosrym@gmail.com',
-        confirmedPassword:'Manuelarg654*',
+        username: "",
+        password:"",
+        email:'',
+        confirmedPassword:'',
     });
 
     const { username,email, password, confirmedPassword } = values;

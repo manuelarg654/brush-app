@@ -28,15 +28,26 @@ export const AsyncRegisterNewUser =(username, email, password)=>{
               });
               sendEmailVerification(auth.currentUser)
         })
-        .catch((e)=>{
-            Swal.fire({
-                position: 'center',
-                icon: 'error',
-                title: `${e}`,
-                showConfirmButton: false,
-                timer: 2500
-              });
-              
+        .catch((err)=>{
+            console.log(err.message)
+            if(err.message === `Firebase: Error (auth/email-already-in-use).`){
+                Swal.fire({
+                    position: 'center',
+                    icon: 'error',
+                    title: `Correo actualmente en uso.`,
+                    showConfirmButton: false,
+                    timer: 2500
+                  });
+                }
+                else{
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'error',
+                        title: `${err}`,
+                        showConfirmButton: false,
+                        timer: 2500
+                      });
+                }
         })
 
     })
@@ -67,7 +78,7 @@ export const AsyncLoginWithEmail =(email, password)=>{
             
         })
         .catch((err)=>{
-            console.log(err.message)
+            
             if(err.message === `Firebase: Error (auth/user-not-found).`){
             Swal.fire({
                 position: 'center',

@@ -18,12 +18,6 @@ import { ModifyPhrasalVerbsScreen } from '../components/ModifyPhrasalVerbsScreen
 import { ModifyQuotesScreen } from '../components/ModifyQuotesScreen';
 import { ModifyVerbsScreen } from '../components/ModifyVerbsScreen';
 
-// const lastRoute =()=>{
-
-//     return(localStorage.setItem('key',"string"))
-
-// }
-
 
 export const DashBoardRoutes = () => {
 

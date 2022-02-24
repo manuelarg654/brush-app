@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import { NavBar } from '../components/NavBar';
 import { QuotesScreen } from '../components/QuotesScreen';
 import { WordsScreen } from '../components/WordsScreen';
@@ -18,9 +18,18 @@ import { ModifyPhrasalVerbsScreen } from '../components/ModifyPhrasalVerbsScreen
 import { ModifyQuotesScreen } from '../components/ModifyQuotesScreen';
 import { ModifyVerbsScreen } from '../components/ModifyVerbsScreen';
 
+// const lastRoute =()=>{
+
+//     return(localStorage.setItem('key',"string"))
+
+// }
 
 
 export const DashBoardRoutes = () => {
+
+    const location = useLocation();
+    console.log(location)
+    localStorage.setItem('lastPath', location.pathname);
 
     const dispatch = useDispatch();
     const { containerMounted } = useSelector(state => state.ui);

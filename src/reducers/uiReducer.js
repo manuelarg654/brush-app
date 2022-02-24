@@ -11,7 +11,7 @@ const initialState = {
     noverbs: false,
     noPhrasalVerbs: false,
     noquotes: false,
-    sidebar: true,
+    sidebar: false,
     containerMounted:false
 
 }

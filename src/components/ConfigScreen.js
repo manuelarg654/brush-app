@@ -11,7 +11,7 @@ export const ConfigScreen = () => {
         settingsLinks.map((link)=>{
           const {id, text, url} = link;
           return(
-            <Link to={url}>
+            <Link to={url} key={id}>
               <li key={id} className='setting-link'>
                 {
                   text

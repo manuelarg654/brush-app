@@ -1,5 +1,5 @@
 
-import {confirmPasswordReset, createUserWithEmailAndPassword, getAuth, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup, updateProfile} from 'firebase/auth';
+import {confirmPasswordReset, createUserWithEmailAndPassword, getAuth, sendEmailVerification, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup, updateProfile} from 'firebase/auth';
 import { googleAuthProvider } from '../firebase/firebase-config';
 import { types } from '../types/types';
 import { clearPhrasalVerbs } from './phrasalVerbsActions';
@@ -22,13 +22,13 @@ export const AsyncRegisterNewUser =(username, email, password)=>{
             Swal.fire({
                 position: 'center',
                 icon: 'success',
-                title: "Usuario creado exitosamente, inicia Sesión",
+                title: "Usuario creado exitosamente, Verifica tu correo.",
                 showConfirmButton: false,
                 timer: 2500
               });
-
+              sendEmailVerification(auth.currentUser)
         })
-        .catch(e=>{
+        .catch((e)=>{
             Swal.fire({
                 position: 'center',
                 icon: 'error',
@@ -36,8 +36,8 @@ export const AsyncRegisterNewUser =(username, email, password)=>{
                 showConfirmButton: false,
                 timer: 2500
               });
+              
         })
-
 
     })
 
@@ -53,16 +53,50 @@ export const AsyncLoginWithEmail =(email, password)=>{
         const auth = getAuth();
         signInWithEmailAndPassword(auth, email, password)
         .then(({user})=>{
-            dispatch(login(user.uid, user.displayName));
+            if(user.emailVerified === true){
+                dispatch(login(user.uid, user.displayName));
+            }else{
+                Swal.fire({
+                    position: 'center',
+                    icon: 'error',
+                    title: `Verifica tu correo para iniciar sesión`,
+                    showConfirmButton: false,
+                    timer: 2500
+                  });
+            }
+            
         })
-        .catch((e)=>{
+        .catch((err)=>{
+            console.log(err.message)
+            if(err.message === `Firebase: Error (auth/user-not-found).`){
             Swal.fire({
                 position: 'center',
                 icon: 'error',
-                title: "Correo o Contraseña Incorrecta",
+                title: `El correo usado no tiene cuenta creada`,
                 showConfirmButton: false,
                 timer: 2500
               });
+            }
+            else if(err.message === `Firebase: Error (auth/wrong-password).`){
+            Swal.fire({
+            position: 'center',
+            icon: 'error',
+            title: `Contraseña incorrecta`,
+            showConfirmButton: false,
+            timer: 2000
+            });
+            }
+            else if(err.message === `Firebase: Access to this account has been temporarily disabled due to many failed login attempts. You can immediately restore it by resetting your password or you can try again later. (auth/too-many-requests).`){
+            Swal.fire({
+            position: 'center',
+            icon: 'error',
+            title: `El acceso a esta cuenta se ha inhabilitado temporalmente debido a muchos intentos fallidos de inicio de sesión. Puede restaurarlo inmediatamente restableciendo su contraseña o puede volver a intentarlo más tarde.`,
+            showConfirmButton: false,
+            timer: 8500
+            });
+            }
+            
+
         })
     })
 
@@ -123,7 +157,7 @@ export const AsyncForgotPassword =(email)=>{
         const auth = getAuth();
         sendPasswordResetEmail(auth, email, {
             //that url is used for the continue button when password has been changed
-            url: 'http://localhost:3000/auth/login'
+            url: 'https://brush-app.com/auth/login'
         })
         .then((res)=>{
 

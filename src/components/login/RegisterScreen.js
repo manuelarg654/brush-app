@@ -17,7 +17,7 @@ export const RegisterScreen = () => {
     const [ values, handleInputChange] = useForm({
         username: "manuelarg",
         password:"Manuelarg654*",
-        email:'manuelr654321@gmail.com',
+        email:'ferreelectricosrym@gmail.com',
         confirmedPassword:'Manuelarg654*',
     });
 
@@ -31,7 +31,7 @@ export const RegisterScreen = () => {
         if(isFormValid()){
             
             dispatch( AsyncRegisterNewUser(username,email,password));
-            navegacion('/auth/login');
+            // navegacion('/auth/login');
         }
         
         

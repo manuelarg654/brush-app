@@ -8,6 +8,7 @@ import { DashBoardRoutes } from './DashBoardRoutes';
 import { PrivateRoutes } from './PrivateRoutes';
 import { PublicRoutes } from './PublicRoutes';
 
+
 export const AppRouter = () => {
 
     const [logged, setLogged] = useState(false);
@@ -22,7 +23,8 @@ export const AppRouter = () => {
       
       auth.onAuthStateChanged( async (user) =>{
         
-        if(user?.uid){
+        
+        if(user?.uid && user?.emailVerified === true){
           dispatch(login(user.uid, user.displayName))
           setLogged(true);
         }else{

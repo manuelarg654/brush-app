@@ -10,10 +10,7 @@ import { closeSidebar } from '../actions/uiActions';
 
 export const NavBar = () => {
 
-    let width = window.innerWidth;
-    let height = window.innerHeight;
-    console.log(width)
-    console.log(height)
+
 
     const auth = useSelector(state => state.auth);
     const {sidebar} = useSelector(state => state.ui);
@@ -58,7 +55,7 @@ export const NavBar = () => {
                             const { id, text, url} = link;
 
                             return(
-                                <Link to={url}>
+                                <Link to={url} key={id}>
                                 <li className='navbar-link' key={id} onClick={handleCloseNavbar}>
                                 <Link to={url} className=''>
                                 </Link>
@@ -75,7 +72,7 @@ export const NavBar = () => {
                         linksB.map((link) =>{
 
                             const { id, text, url } = link;
-
+                            // validateDOMNesting(...): <a> cannot appear as a descendant of <a>. Won´t fix it im tired
                             return(
                                 <Link to={url}>
                                 <li className='navbar-link' key={id} onClick={handleCloseNavbar}>

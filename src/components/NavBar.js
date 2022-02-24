@@ -72,7 +72,7 @@ export const NavBar = () => {
                         linksB.map((link) =>{
 
                             const { id, text, url } = link;
-                            // validateDOMNesting(...): <a> cannot appear as a descendant of <a>. Won´t fix it im tired
+                            // validateDOMNesting(...): <a> cannot appear as a descendant of <a>. Won´t fix it im tired.
                             return(
                                 <Link to={url}>
                                 <li className='navbar-link' key={id} onClick={handleCloseNavbar}>

@@ -85,8 +85,9 @@ export const ModifyQuotesScreen = () => {
                       <td data-label='frase'>{frase}</td>
                       <td data-label='traduccion'>{traduccion}</td>
                       <td data-label='acciones' className='td-delete'
-                        onClick={(e) => handleDelete(e, id)}>
+                        >
                           <RiDeleteBin7Fill
+                          onClick={(e) => handleDelete(e, id)}
                           className='td-delete'
                       />
                         </td>

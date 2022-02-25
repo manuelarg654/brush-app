@@ -86,9 +86,10 @@ export const ModifyPhrasalVerbsScreen = () => {
                       <td data-label='palabra'>{phrasalverb}</td>
                       <td data-label='traducción'>{traduccion}</td>
                       <td data-label='acciones' className='td-delete'
-                        onClick={(e) => handleDelete(e, id)}>
+                        >
                           <RiDeleteBin7Fill
                           className='td-delete'
+                          onClick={(e) => handleDelete(e, id)}
                          />
                         </td>
                     </tr>

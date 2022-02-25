@@ -96,8 +96,9 @@ export const ModifyVerbsScreen = () => {
                       <td data-label='pasado participio'>{pparticipio}</td>
                       <td data-label='traducción'>{traduccion}</td>
                       <td data-label='acciones' title="Eliminar palabra"
-                        onClick={(e) => handleDelete(e, id)}>
+                        >
                           <RiDeleteBin7Fill
+                          onClick={(e) => handleDelete(e, id)}
                           className='td-delete'
                          />
                         </td>

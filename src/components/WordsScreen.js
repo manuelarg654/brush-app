@@ -12,6 +12,7 @@ export const WordsScreen = () => {
     const {loading, firstWord, nowords }= useSelector(state => state.ui);
     const {infinitivo, traduccion} = words;
     
+    console.log("Hola mundo desde C++")
     
 
     const dispatch = useDispatch();

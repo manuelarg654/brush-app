@@ -22,7 +22,6 @@ import { ModifyVerbsScreen } from '../components/ModifyVerbsScreen';
 export const DashBoardRoutes = () => {
 
     const location = useLocation();
-    console.log(location)
     localStorage.setItem('lastPath', location.pathname);
 
     const dispatch = useDispatch();

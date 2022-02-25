@@ -35,8 +35,24 @@ export const MWordsScreen = () => {
       return;
     }
 
-    if(infinitivo <= 0 || traduccion <=0){
-      console.log("infinitivo/traducción es obligatorio");
+    if(infinitivo.length === 30 && infinitivo.indexOf(" ") === -1){
+      Swal.fire({
+        position: 'center',
+        icon: 'error',
+        title: 'palabra agregada no válida',
+        showConfirmButton: false,
+        timer: 2500
+      });
+      return;
+    }
+    if(traduccion.length === 45 && traduccion.indexOf(" ") === -1){
+      Swal.fire({
+        position: 'center',
+        icon: 'error',
+        title: 'palabra agregada no válida',
+        showConfirmButton: false,
+        timer: 2500
+      });
       return;
     }
     dispatch(addNewWord(infinitivo, traduccion ));

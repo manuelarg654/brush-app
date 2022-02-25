@@ -12,6 +12,7 @@ export const WordsScreen = () => {
     const {loading, firstWord, nowords }= useSelector(state => state.ui);
     const {infinitivo, traduccion} = words;
     
+    
 
     const dispatch = useDispatch();
 
@@ -20,6 +21,7 @@ export const WordsScreen = () => {
         if(firstWord){
             dispatch(getAllDocs());
         }
+
     }, [firstWord, dispatch]);
 
     const handleNewWord =()=>{

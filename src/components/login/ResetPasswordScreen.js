@@ -59,6 +59,7 @@ export const ResetPasswordScreen = () => {
                     >Cambiar Contraseña</button>
                     <Link to='/auth/login'><p className='p-create-account'>- Return to login -</p></Link>
                 </form>
+                <p className='p-creator-label'><a href='https://manu.com.co/index.html' target='_blank'>by manu.com.co</a></p>
             </div>
         </div>
     )

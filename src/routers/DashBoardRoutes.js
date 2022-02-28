@@ -17,6 +17,7 @@ import { ModifyWordsScreen } from '../components/ModifyWordsScreen';
 import { ModifyPhrasalVerbsScreen } from '../components/ModifyPhrasalVerbsScreen';
 import { ModifyQuotesScreen } from '../components/ModifyQuotesScreen';
 import { ModifyVerbsScreen } from '../components/ModifyVerbsScreen';
+import { MainScreen } from '../components/MainScreen';
 
 
 export const DashBoardRoutes = () => {
@@ -43,6 +44,8 @@ export const DashBoardRoutes = () => {
         <div className={`${containerMounted ? `container-table` : `` } dashboard-right-content`}>
         
         <Routes>
+            <Route path='main' element={ <MainScreen /> } />
+            
             <Route path='words' element={ <WordsScreen /> } />
             <Route path='quotes' element={ <QuotesScreen /> } />
             <Route path='phrasalverbs' element={ <PhrasalVerbsScreen /> } />

@@ -69,6 +69,7 @@ export const ForgotPasswordScreen = () => {
                     type='submit'
                     >Submit</button>
                     <Link to='/auth/login'><p className='p-create-account'>- Already registered? -</p></Link>
+                    <p className='p-creator-label'><a href='https://manu.com.co/index.html' target='_blank'>by manu.com.co</a></p>
                 </form>
             </div>
         </div>

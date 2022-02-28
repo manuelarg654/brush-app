@@ -1,5 +1,5 @@
 import React from 'react';
-import { useDispatch} from "react-redux";
+import { useDispatch, useSelector} from "react-redux";
 import { AsyncLoginWithEmail, AsyncLoginWithGoogle } from '../../actions/authActions';
 import AppLogo from '../../assets/brushAPPLogo.PNG';
 import { Link } from 'react-router-dom';
@@ -9,8 +9,8 @@ import Swal from 'sweetalert2';
 export const LoginScreen = () => {
 
     const dispatch = useDispatch();
-
-
+    const state = useSelector(state => state);
+    console.log(state);
     
     const [values, handleInputChange ] = useForm({
         email:"",
@@ -95,8 +95,11 @@ export const LoginScreen = () => {
                     <button
                     >Via Google</button>
                     <Link to='/auth/register'><p className='p-create-account'>- Create a new account -</p></Link>
+                    <p className='p-creator-label'><a href='https://manu.com.co/index.html' target='_blank'>by manu.com.co</a></p>
                 </form>
+                
             </div>
+            
         </div>
     )
 }
